@@ -3,6 +3,7 @@ import { createSignal, Index, Show } from 'solid-js'
 import IconClear from './icons/Clear'
 import MessageItem from './MessageItem'
 import SystemRoleSettings from './SystemRoleSettings'
+import Send from './icons/Send'
 
 export default () => {
   let inputRef: HTMLTextAreaElement
@@ -165,8 +166,8 @@ export default () => {
         when={!loading()}
         fallback={() => (
           <div class="h-12 my-4 flex gap-4 items-center justify-center bg-slate bg-op-15 text-slate rounded-sm">
-            <span>AI is thinking...</span>
-            <div class="px-2 py-0.5 border border-slate text-slate rounded-md text-sm op-70 cursor-pointer hover:bg-slate/10" onClick={stopStreamFetch}>Stop</div>
+            <span>AI正在思考...</span>
+            <div class="px-2 py-0.5 border border-slate text-slate rounded-md text-sm op-70 cursor-pointer hover:bg-slate/10" onClick={stopStreamFetch}>停止</div>
           </div>
         )}
       >
@@ -175,7 +176,7 @@ export default () => {
             ref={inputRef!}
             disabled={systemRoleEditing()}
             onKeyDown={handleKeydown}
-            placeholder="Enter something..."
+            placeholder="在此处输入..."
             autocomplete="off"
             autofocus
             onInput={() => {
@@ -200,7 +201,7 @@ export default () => {
             scroll-pa-8px
           />
           <button onClick={handleButtonClick} disabled={systemRoleEditing()} h-12 px-4 py-2 bg-slate bg-op-15 hover:bg-op-20 text-slate rounded-sm>
-            Send
+            <Send />
           </button>
           <button title="Clear" onClick={clear} disabled={systemRoleEditing()} h-12 px-4 py-2 bg-slate bg-op-15 hover:bg-op-20 text-slate rounded-sm>
             <IconClear />
